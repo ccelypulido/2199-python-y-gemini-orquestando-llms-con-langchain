@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Título del proyecto
 
 2199 - Python y Gemini: Orquestando LLMs con LangChain
@@ -49,3 +50,6 @@ pip install -r requirements.txt
 GEMINI_API_KEY = "TU_API_KEY_AQUÍ"
 COHERE_API_KEY = "TU_API_KEY_AQUÍ"
 ```
+=======
+# 2199-python-y-gemini-orquestando-llms-con-langchain
+>>>>>>> af0df6ce2eef9c9b4459f294c0c3161d5e227752

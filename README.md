@@ -1,55 +1,111 @@
-<<<<<<< HEAD
-# Título del proyecto
+# 2199 - Python y Gemini: Orquestando LLMs con LangChain
 
-2199 - Python y Gemini: Orquestando LLMs con LangChain
+Este proyecto demuestra cómo usar LangChain y la API de Gemini para analizar imágenes con IA multimodal y convertir la respuesta en un formato estructurado en JSON.
 
-## 🔨 Funcionalidades del proyecto
+## Objetivo
 
-En este proyecto, utilizaremos LangChain como framework principal para orquestar una solución integrada de análisis y organización de imágenes enriquecidas con anotaciones inteligentes. LangChain será empleado debido a su capacidad para conectar y gestionar flujos complejos que combinan IA multimodal y modelos de lenguaje, lo que permite un desarrollo más modular y escalable.
+El flujo del proyecto permite:
 
-![](img/amostra.gif)
+- enviar una imagen al modelo de Gemini,
+- extraer una descripción relevante de la imagen,
+- generar un resumen claro y objetivo,
+- devolver el resultado en un esquema definido mediante Pydantic.
 
-## ✔️ Técnicas y tecnologías utilizadas
+## Funcionalidades
 
-Las técnicas y tecnologías utilizadas son:
+- Análisis de imágenes con modelos de lenguaje multimodales.
+- Generación de descripciones, etiquetas y títulos.
+- Transformación de respuestas en estructuras JSON organizadas.
+- Uso de prompts y cadenas de procesamiento con LangChain.
 
-- Programación en Python  
-- Uso de la API Gemini  
-- Uso del framework LangChain  
-- Cadenas simples  
-- Agente orquestador  
-- Agente como herramientas  
+## Tecnologías utilizadas
 
-## 🛠️ Abrir y ejecutar el proyecto
+- Python
+- LangChain
+- Gemini API
+- Pydantic
+- python-dotenv
+- Cohere (opcional en el proyecto)
 
-Después de descargar el proyecto, puedes abrirlo con Visual Studio Code. A continuación, es necesario preparar tu entorno. Para ello:
+## Estructura del proyecto
 
-### venv en Windows:
+- `LangChain.py`: flujo principal de procesamiento con LangChain.
+- `detalles_imagen.py`: definición del modelo de salida con Pydantic.
+- `my_helper.py`: utilitario para codificar imágenes en Base64.
+- `my_keys.py`: carga de claves API desde variables de entorno.
+- `my_models.py`: configuración de modelos disponibles de Gemini.
+- `datos/`: carpeta con imágenes de ejemplo.
+- `requirements.txt`: dependencias del proyecto.
+
+## Requisitos previos
+
+- Python 3.9 o superior
+- Una cuenta activa en Google AI Studio para obtener la API key de Gemini
+- (Opcional) una clave de Cohere si se habilita esa parte del flujo
+
+## Instalación
+
+### 1. Crear y activar un entorno virtual
+
+En Windows:
 
 ```bash
 python -m venv .venv-gemini-3
 .\.venv-gemini-3\Scripts\activate
-````
+```
 
-### venv en Mac/Linux:
+En Linux o macOS:
 
 ```bash
 python3 -m venv .venv-gemini-3
 source .venv-gemini-3/bin/activate
 ```
 
-Después, instala los paquetes utilizando:
+### 2. Instalar dependencias
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 🔑 Generar API\_KEYs y asociarlas al archivo .env
+## Configuración de variables de entorno
 
-```python
-GEMINI_API_KEY = "TU_API_KEY_AQUÍ"
-COHERE_API_KEY = "TU_API_KEY_AQUÍ"
+Crea un archivo llamado `.env` en la raíz del proyecto con el siguiente contenido:
+
+```env
+GEMINI_API_KEY=tu_api_key_aqui
+COHERE_API_KEY=tu_api_key_aqui
 ```
-=======
-# 2199-python-y-gemini-orquestando-llms-con-langchain
->>>>>>> af0df6ce2eef9c9b4459f294c0c3161d5e227752
+
+> Si no vas a usar Cohere, puedes dejar la variable vacía o comentar la parte relacionada en el código.
+
+## Ejecución
+
+Ejecuta el archivo principal:
+
+```bash
+python3 LangChain.py
+```
+
+El programa analizará la imagen ubicada en `datos/ejemplo_grafico.jpg` y mostrará una respuesta generada por el modelo.
+
+## Ejemplo de salida
+
+El resultado esperado se estructura en campos como:
+
+```json
+{
+  "titulo": "Descripción del contenido visual",
+  "descripcion": "Resumen del análisis de la imagen",
+  "etiquetas": ["palabra1", "palabra2", "palabra3"]
+}
+```
+
+## Notas importantes
+
+- Asegúrate de que la imagen que deseas analizar exista en la ruta indicada.
+- Puedes cambiar el modelo usado desde `my_models.py`.
+- Si el proyecto presenta errores de importación, revisa que el entorno virtual esté activado.
+
+## Siguiente paso
+
+Puedes ampliar este proyecto para trabajar con múltiples imágenes, agregar una interfaz web o integrar la salida con una base de datos o una API propia.

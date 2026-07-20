@@ -22,7 +22,7 @@ class HerramientaAnalisisImagen(BaseTool):
     def _run(self, accion):
         
         accion = ast.literal_eval(accion)
-        camino_imagen = accion.get("nombre_imagen","")
+        camino_imagen = accion.get("nombre_imagen","") # Si no encuentra imagen, devuelve una string vacía.
 
 
         llm = ChatGoogleGenerativeAI(

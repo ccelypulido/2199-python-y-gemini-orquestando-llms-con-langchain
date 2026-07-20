@@ -9,7 +9,7 @@ def main():
                     verbose = True
                 )
     
-    pregunta = "Realiza el análisis de la imagen ejemplo_grafico.jpg"
+    pregunta = "Ayudame a entender la varianza en fianzas"
 
     respuesta = ejecutor.invoke({"input" : pregunta})
 
